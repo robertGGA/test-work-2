@@ -1,0 +1,21 @@
+@mixin for-phone {
+  @media (max-width: 400px) {
+    @content
+  }
+}
+
+@mixin for-tablet {
+  @media (max-width: 700px) {
+    @content
+  }
+}
+
+@mixin h2 {
+  font-weight: 600;
+  font-size: 22px;
+}
+
+@mixin h4 {
+  font-size: 14px;
+  font-weight: 600;
+}
