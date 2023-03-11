@@ -1,5 +1,5 @@
 <rg-modal-body>
-  <img [alt]="film.name" [src]="getCover()" class="modal__cover"/>
+  <img [alt]="film.name" [src]="this.film.id | cover" class="modal__cover"/>
 
   <div class="modal__info">
     <div class="info-wrapper">

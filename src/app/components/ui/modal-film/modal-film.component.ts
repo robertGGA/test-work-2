@@ -41,8 +41,5 @@ export class ModalFilmComponent {
     this.filmService.setFavFilm(this.film.id);
   }
 
-  getCover() {
-    return `images/${this.data.film.id.toString()}.jpeg`
-  }
 
 }

@@ -26,10 +26,6 @@ export class CardComponent {
     this.setActiveFilm.next(this.data.id);
   }
 
-  getImagePath(): string {
-    return `images/${this.data.id.toString()}.jpeg`
-  }
-
   openModal() {
     this.dialog.open(ModalFilmComponent,
       {
