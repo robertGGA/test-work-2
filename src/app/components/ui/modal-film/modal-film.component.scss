@@ -1,0 +1,65 @@
+@import "src/app/styles/mixins";
+
+:host {
+  display: flex;
+  flex-direction: column;
+  padding: 15px 20px;
+}
+
+.modal {
+
+  &__cover {
+    width: 150px;
+    height: 225px;
+    object-fit: cover;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 20px;
+    justify-content: space-between;
+    @include for-phone {
+      word-break: break-word;
+      margin-left: 0;
+    }
+
+  }
+
+  &__title {
+    @include h2
+  }
+
+}
+
+
+.button {
+  &__row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-self: flex-end;
+    margin-top: 5px;
+
+    button {
+      font-weight: 400;
+      font-size: 14px;
+      letter-spacing: 0;
+    }
+  }
+
+  &-cancel {
+    color: #FF4081;
+  }
+}
+
+.info {
+  &-wrapper {
+    display: flex;
+    flex-direction: column;
+    span {
+      margin-top: 10px;
+    }
+  }
+}

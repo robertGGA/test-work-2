@@ -1,10 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+@import "src/app/styles/mixins";
 
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   font-family: Montserrat, serif;
+  color: $c-pd-base-black;
+  font-weight: 400;
+  font-size: 12px;
 }
 
 a {
@@ -13,4 +18,15 @@ a {
 
 body {
   background-color: #F4F4F4;
+}
+
+html, body {
+  height: 100%;
+}
+
+.modal {
+  background: #FFFFFF;
+  box-shadow: 0 0 15px rgba(29, 24, 56, 0.1);
+  max-width: 756px !important;
+  border-radius: 10px;
 }

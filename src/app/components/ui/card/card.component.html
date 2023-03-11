@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card" (click)="openModal()">
   <img alt="film-cover" [src]="getImagePath()"/>
 
   <h4 class="card__title">
@@ -6,13 +6,13 @@
   </h4>
 
   <p class="card__sub-title">
-    {{data.genre | genre}}
+    {{data.genre | genre: ','}}
   </p>
 
   <p class="card__sub-title">
     {{data.year}}
   </p>
-  <button (click)="setFavFilm(data.id)" [ngClass]="isFavFilm() ? 'button-active' : ''" class="button-like">
+  <button (click)="setFavFilm($event)" [ngClass]="isFavFilm() ? 'button-active' : ''" class="button-like">
     <!-- IMPORTANT: обычно использую svg-store для работой с svg и создаю отдельную компоненту под нее, но здесь всего одна svg'шка поэтому решил не делать этого -->
     <svg *ngIf="!isFavFilm(); else liked" xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="none">
       <path fill="currentColor"

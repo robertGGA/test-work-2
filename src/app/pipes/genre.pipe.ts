@@ -6,18 +6,18 @@ import {GenreEnum} from "@models/genreEnum";
 })
 export class GenrePipe implements PipeTransform {
 
-  transform(value: Array<number>): string {
+  transform(value: Array<number>, separator?: string): string {
     let result = '';
 
-    value.forEach(number => {
+    value.forEach((number) => {
       if (number - 1 >= 11 || number - 1 < 0) {
-        result += 'неизвестный жанр ';
+        result += 'неизвестный жанр' + (separator ? `${separator} ` : ' ');
       } else {
-        result += `${GenreEnum[number - 1]} `
+        result += `${GenreEnum[number - 1]}` + (separator ? `${separator} ` : ' ')
       }
     })
 
-    return result.trimEnd();
+    return result[result.length - 2] === separator ? result.substring(0, result.length - 2) : result.trimEnd();
   }
 
 }

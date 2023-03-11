@@ -1,3 +1,6 @@
+$c-background-color: #F4F4F4;
+$c-pd-base-black: #1D1838;
+
 @mixin for-phone {
   @media (max-width: 400px) {
     @content

@@ -3,7 +3,6 @@ import {FilmService} from "@services/film.service";
 import {takeUntil} from "rxjs";
 import {DestroyService} from "@services/destroy.service";
 import {IFilm} from "@models/film";
-import {localStorageService} from "@utils/local-storage";
 
 @Component({
   selector: 'rg-root',
@@ -11,7 +10,7 @@ import {localStorageService} from "@utils/local-storage";
   styleUrls: ['./app.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AppComponent  {
+export class AppComponent {
   title = 'test-task';
 
   films!: Array<IFilm>
@@ -22,19 +21,19 @@ export class AppComponent  {
               private cdr: ChangeDetectorRef) {
     filmService.getFilms().pipe(takeUntil(this.destroy$)).subscribe(value => {
       this.films = value;
-      this.favFilm = Number(window.localStorage.getItem('favourite-film'));
       this.cdr.markForCheck();
     });
+
+    this.filmService.getFavFilm()
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(value => {
+        this.favFilm = value;
+        this.cdr.markForCheck();
+      })
   }
 
   setFavFilm(id: number): void {
-    if (id !== this.favFilm) {
-      this.favFilm = id;
-      localStorageService.setStorageValue('favourite-film', id);
-    } else {
-      this.favFilm = null;
-      localStorageService.clearStorageByKey('favourite-film');
-    }
+    this.filmService.setFavFilm(id);
   }
 
   getFavFilm(): IFilm | undefined {

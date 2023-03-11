@@ -9,6 +9,7 @@
   flex-direction: column;
   align-items: flex-start;
   overflow-y: hidden;
+  transition: 0.4s;
 
   box-shadow: 0 0 15px rgba(#1d1838, 0.1);
   border-radius: 10px;
@@ -30,9 +31,12 @@
     margin-top: 10px;
   }
 
-  &:hover .button-like {
-    visibility: visible;
-    opacity: 1;
+  &:hover {
+    background: $c-background-color;
+    .button-like {
+      visibility: visible;
+      opacity: 1;
+    }
   }
 
 }

@@ -1,0 +1,24 @@
+<rg-modal-body>
+  <img [alt]="film.name" [src]="getCover()" class="modal__cover"/>
+
+  <div class="modal__info">
+    <div class="info-wrapper">
+      <h2 class="modal__title">
+        {{film.name}}
+      </h2>
+      <span>
+      {{film.genre | genre : ','}}
+    </span>
+      <span>
+      {{film.year}}
+    </span>
+      <span>
+      {{film.description}}
+    </span>
+    </div>
+    <div class="button__row">
+      <button (click)="setFavFilm()" mat-button [color]="isActive ? 'warn' : 'primary'">{{isActive ? 'Удалить из лучших фильмов' : 'Выбрать лучшим фильмом'}}</button>
+      <button (click)="closeModal()" mat-button color="warn">Закрыть</button>
+    </div>
+  </div>
+</rg-modal-body>
