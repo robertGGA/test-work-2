@@ -15,12 +15,24 @@
 }
 
 .header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  @include for-tablet {
+    justify-content: center;
+  }
+
   &-title {
     @include h2;
 
     @include for-phone {
       text-align: center;
     }
+  }
+
+  nav {
+    margin-top: 10px;
   }
 }
 
@@ -31,6 +43,8 @@
     justify-content: center;
     grid-template-columns: repeat(auto-fit, 190px);
     gap: 10px
+
+
   }
 
   &__favourite {
@@ -38,6 +52,12 @@
     margin-top: 40px;
 
     @include for-phone {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    @include for-tablet {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -50,6 +70,12 @@
     margin-top: 15px;
     display: block;
     width: 190px;
+  }
+}
+
+.form {
+  &__input {
+    margin-left: 5px;
   }
 }
 

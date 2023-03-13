@@ -1,7 +1,20 @@
-<rg-header>
+<rg-header class="header">
   <h2 class="header-title">
     Популярные фильмы
   </h2>
+
+  <nav [formGroup]="form">
+    <mat-form-field appearance="outline">
+      <mat-label>Все</mat-label>
+      <mat-select formControlName="select" multiple>
+        <mat-option *ngFor="let genre of genresMap" [value]="genre.id">{{genre.value}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="form__input" appearance="outline">
+      <input formControlName="search" matInput placeholder="Введите название">
+    </mat-form-field>
+  </nav>
 </rg-header>
 
 <main>
