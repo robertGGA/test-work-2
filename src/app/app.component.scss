@@ -40,9 +40,12 @@
   &__container {
     width: 100%;
     display: grid;
-    justify-content: center;
     grid-template-columns: repeat(auto-fit, 190px);
-    gap: 10px
+    gap: 10px;
+
+    @include for-tablet {
+      justify-content: center;
+    }
 
 
   }
@@ -76,6 +79,10 @@
 .form {
   &__input {
     margin-left: 5px;
+
+    @include for-tablet {
+      margin: 0;
+    }
   }
 }
 

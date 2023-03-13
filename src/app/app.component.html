@@ -25,7 +25,7 @@
     </ng-container>
   </div>
 
-  <ng-container *ngIf="films">
+  <ng-container *ngIf="films && isEmptyForm()">
     <ng-container *ngIf="getFavFilm()">
       <div class="films__favourite">
         <h2 class="header-title">

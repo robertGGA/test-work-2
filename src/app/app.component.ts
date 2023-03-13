@@ -33,7 +33,10 @@ export class AppComponent {
     });
 
     this.genresMap.unshift({id: this.genresMap.length + 1, value: 'Все'});
+    this.initData();
+  }
 
+  private initData() {
     this.filmService.getFavFilm()
       .pipe(takeUntil(this.destroy$))
       .subscribe(value => {
@@ -67,8 +70,7 @@ export class AppComponent {
     ).subscribe(value => {
       this.films = value;
       this.cdr.markForCheck();
-    })
-
+    });
   }
 
   setFavFilm(id: number): void {
@@ -77,5 +79,9 @@ export class AppComponent {
 
   getFavFilm(): IFilm | undefined {
     return this.films.find(value => this.favFilm === value.id);
+  }
+
+  isEmptyForm(): Boolean {
+    return (!this.form.get('search')?.getRawValue() && !this.form.get('select')?.getRawValue().length);
   }
 }
